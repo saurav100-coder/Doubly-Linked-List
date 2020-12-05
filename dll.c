@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 struct node {
     struct node *prev;
     int data;
     struct node *next;
 };
+
 struct node *addToEmpty(struct node *head , int data) {
     struct node *temp = malloc(sizeof(struct node));
     temp->next = NULL;
@@ -13,6 +15,7 @@ struct node *addToEmpty(struct node *head , int data) {
     head = temp;
     return head;
 }
+
 struct node *addAtBeg(struct node *head , int data) {
     struct node *temp = NULL;
     temp = addToEmpty(temp , data);
@@ -22,6 +25,7 @@ struct node *addAtBeg(struct node *head , int data) {
     return head;
 
 }
+
 void addAtEnd(struct node *head , int data) {
     struct node *newP = NULL;
     struct node *temp = head;
@@ -32,6 +36,7 @@ void addAtEnd(struct node *head , int data) {
     temp->next = newP;
     newP->prev = temp;
 }
+
 void addAfterPos(struct node *head,int pos,int data) {
     struct node *newP = NULL;
     newP = addToEmpty(newP,data);
@@ -54,6 +59,7 @@ void addAfterPos(struct node *head,int pos,int data) {
         newP->next=temp2;
     }
 }
+
 struct node* addBeforePos(struct node *head,int pos,int data) {
     struct node *newP=NULL;
     newP=addToEmpty(newP,data);
@@ -75,6 +81,7 @@ struct node* addBeforePos(struct node *head,int pos,int data) {
     }
     return head;
 }
+
 struct node* createList(struct node *head) {
     int n,i,data,choice,pos;
     printf("Enter the no. of nodes : ");
@@ -117,6 +124,7 @@ struct node* createList(struct node *head) {
     }
     return head;
 };
+
 void print (struct node *head)
 {
     if (head==NULL) printf ("List is empty\n");
@@ -129,6 +137,7 @@ void print (struct node *head)
     }
 
 }
+
 void main() {
     struct node *head = NULL;
     head=createList(head);
